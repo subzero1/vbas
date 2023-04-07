@@ -90,25 +90,11 @@ Sub ShowTable(tab, sheet,rowIndex,sheetList)
      rowsNum = rowsNum + 1
       ' Show properties
       Output "================================"
-      '设置超链接，从目录点击表名去查看表结构
-      '字段中文名    字段英文名    字段类型    注释    是否主键    是否非空    默认值
-      sheetList.Hyperlinks.Add sheetList.cells(rowIndex,2), "","表结构"&"!B"&rowsNum
-      rowsNum = rowsNum + 1
-      sheet.cells(rowsNum, 1) = "Owner"
-      sheet.cells(rowsNum, 2) = "Table"
-      sheet.cells(rowsNum, 3) = "Code"
-      sheet.cells(rowsNum, 4) = "Name"
-      sheet.cells(rowsNum, 5) = "Comment"
-      sheet.cells(rowsNum, 6) = "Data Type"
-      sheet.cells(rowsNum, 7) = "Length"
-      sheet.cells(rowsNum, 8) = "Primary"
-      sheet.cells(rowsNum, 9) = "Null"
-      sheet.cells(rowsNum, 10) = "Defaultvalue"
       '设置边框
-      sheet.Range(sheet.cells(rowsNum-1, 1),sheet.cells(rowsNum, 10)).Borders.LineStyle = "1"
+      sheet.Range(sheet.cells(rowsNum, 1),sheet.cells(rowsNum, 10)).Borders.LineStyle = "1"
       'sheet.Range(sheet.cells(rowsNum-1, 4),sheet.cells(rowsNum, 10)).Borders.LineStyle = "1"
       '字体为10号
-      sheet.Range(sheet.cells(rowsNum-1, 1),sheet.cells(rowsNum, 10)).Font.Size=10
+      sheet.Range(sheet.cells(rowsNum, 1),sheet.cells(rowsNum, 10)).Font.Size=10
             Dim col ' running column
             Dim colsNum
             colsNum = 0
@@ -137,7 +123,6 @@ Sub ShowTable(tab, sheet,rowIndex,sheetList)
       sheet.Range(sheet.cells(rowsNum-colsNum+1,1),sheet.cells(rowsNum,10)).Borders.LineStyle = "3"
       'sheet.Range(sheet.cells(rowsNum-colsNum+1,4),sheet.cells(rowsNum,10)).Borders.LineStyle = "3"
       sheet.Range(sheet.cells(rowsNum-colsNum+1,1),sheet.cells(rowsNum,10)).Font.Size = 10
-      rowsNum = rowsNum + 2
 
       Output "FullDescription: "       + tab.Name
    End If
