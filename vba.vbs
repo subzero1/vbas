@@ -30,15 +30,16 @@ Option Explicit
       EXCEL.workbooks(1).Sheets(2).Select
       EXCEL.visible = true
       '设置列宽和自动换行
-      sheet.Columns(1).ColumnWidth = 20
+      sheet.Columns(1).ColumnWidth = 12
       sheet.Columns(2).ColumnWidth = 20
-      sheet.Columns(3).ColumnWidth = 20
-      sheet.Columns(4).ColumnWidth = 40
-      sheet.Columns(5).ColumnWidth = 10
-      sheet.Columns(6).ColumnWidth = 10
-      sheet.Columns(7).ColumnWidth = 15
-      sheet.Columns(8).ColumnWidth = 30
-      sheet.Columns(9).ColumnWidth = 20
+      sheet.Columns(3).ColumnWidth = 30
+      sheet.Columns(4).ColumnWidth = 20
+      sheet.Columns(5).ColumnWidth = 20
+      sheet.Columns(6).ColumnWidth = 15
+      sheet.Columns(7).ColumnWidth = 8
+      sheet.Columns(8).ColumnWidth = 8
+      sheet.Columns(9).ColumnWidth = 10
+      sheet.Columns(9).ColumnWidth = 10
       sheet.Columns(1).WrapText =true
       sheet.Columns(2).WrapText =true
       sheet.Columns(4).WrapText =true
@@ -61,6 +62,16 @@ Sub ShowProperties(mdl, sheet,SheetList)
    ' For each table
    output "begin"
    Dim tab
+   sheet.cells(1, 1) = "Owner"
+   sheet.cells(1, 2) = "Table"
+   sheet.cells(1, 3) = "Code"
+   sheet.cells(1, 4) = "Name"
+   sheet.cells(1, 5) = "Comment"
+   sheet.cells(1, 6) = "Data Type"
+   sheet.cells(1, 7) = "Length"
+   sheet.cells(1, 8) = "Primary"
+   sheet.cells(1, 9) = "Null"
+   sheet.cells(1, 10) = "Defaultvalue"
    For Each tab In mdl.tables
       ShowTable tab,sheet,rowIndex,sheetList
       rowIndex = rowIndex +1
